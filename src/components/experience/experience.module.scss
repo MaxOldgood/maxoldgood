@@ -1,0 +1,174 @@
+@use '../../app/styles/mixins' as mixins;
+@use '../../app/styles/media' as media;
+
+
+.experience{
+    position: relative;
+    width: 100%;
+    background-color: transparent;
+    border-radius: var(--border-radius);
+
+    -webkit-box-shadow: 0px 0px 20px 3px var(--color-light);
+    -moz-box-shadow: 0px 0px 20px 3px var(--color-light);
+    box-shadow: 0px 0px 20px 3px var(--color-light);
+
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
+    transition:var(--transition);
+
+    @include media.mobile{
+        -webkit-box-shadow: 0px 0px 20px 3px var(--color-light);
+        -moz-box-shadow:  0px 0px 20px 3px var(--color-light);
+        box-shadow: 0px 0px 10px 1px var(--color-light);
+    }
+
+    &__neon{
+        @include mixins.neon-glow(var(--color-purple), 230px, 200px)
+    }
+
+
+    &__header{
+        border-top-left-radius: var(--border-radius);
+        border-top-right-radius: var(--border-radius);
+        width: 100%;
+        height: 100px;
+
+        @include mixins.flex-center;
+
+        @include media.mobile{
+            height: clamp(40px, 10vw, 65px);
+        }
+
+    }
+
+    &__title{
+        font-size: 30px ;
+        text-transform: uppercase;
+
+        @include media.mobile{
+            font-size: 25px;
+        }
+    }
+
+    &__body {
+        border-bottom-left-radius: var(--border-radius);
+        border-bottom-right-radius: var(--border-radius);
+        width: 100%;
+        padding: 20px;
+        background-color: var(--color-dark-alt);
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+        gap: 20px;
+        transition: var(--transition);
+
+        @include media.mobile{
+            padding: 10px;
+            gap: 10px;
+        }
+
+        &_neon{
+            background-color: var(--color-purple);
+        }
+    }
+
+    &__job{
+        width: 100%;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        background-color: var(--color-dark);
+        padding-inline: 20px;
+        padding-block: 10px;
+        border-radius: var(--border-radius);
+        }
+
+    &__period{
+        margin-left: -5px;
+        font-size: 14px;
+        padding-inline: 10px;
+        padding-block: 3px;
+        width: max-content;
+        border-radius:  var(--border-radius);
+        color: var(--color-dark-alt);
+        background-color: var(--color-light-alt);
+        margin-bottom: 10px;
+
+        @include media.mobile{
+        font-size: 13px;
+        color: var(--color-dark);
+        }
+
+
+    }
+
+    &__company{
+        font-size: 25px;
+        text-transform: uppercase;
+
+        @include media.mobile{
+            font-size: 20px;
+        }
+
+    }
+
+    &__profession{
+        font-size: 14px;
+        text-transform: lowercase;
+        color: var(--color-light-alt);
+        padding-bottom: 20px;
+
+        @include media.mobile{
+            padding-bottom: 10px;
+        }
+
+    }
+
+    &__description{
+        
+        font-size: 16px;
+
+        @include media.mobile{
+            font-size: 14px;
+        }
+        
+
+        &>p:not(:last-child){
+            padding-bottom: 8px;
+
+            @include media.mobile-small{
+                padding-bottom: 10px;
+            }
+
+        }
+
+    }
+
+    &__stack{
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        gap: 20px   ;
+        padding-block: 10px;
+        margin-top: 20px;
+
+        @include media.mobile-small{
+            gap: 10px;
+            justify-content: space-evenly;
+        }
+
+
+        &_icon{
+            height: 30px;
+            width: 30px;
+        }
+    }
+}
+
+.light{
+    @include mixins.neon(var(--color-purple), right, 1s)
+}

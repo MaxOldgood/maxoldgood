@@ -1,0 +1,37 @@
+@use '../../app/styles/media' as media;
+
+:root {
+  --color-dark: #111111;
+  --color-dark-alt: #191919;
+
+  --color-light:#ffffff;
+  --color-light-alt: #cccccc;
+
+  --color-red:#FB2576;
+  --color-pink:#F72585;
+
+  --color-blue: #2dd9fe;
+  --color-blue-alt: #00a3d5;
+
+  --color-green: #28FFBF;
+
+  --color-purple:#7209B7;
+
+  --font-family-base: 'Play', sans-serif;
+  --container-width: 800px;
+  --container-padding-x: 80px;
+
+  --transition: all 0.4s ease;
+  --transition-fast: all 0.25s ease;
+  --border-radius: 20px;
+
+  @include media.mobile {
+      --container-padding-x: 30px;
+  }
+
+  @include media.mobile-small {
+    --container-padding-x: 20px;
+}
+
+
+}

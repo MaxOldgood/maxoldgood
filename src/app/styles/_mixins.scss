@@ -1,0 +1,236 @@
+@use './media' as media;
+
+
+@mixin fluid-text ($max: 40, $min: 16) {
+	font-size: clamp(#{$min}px, #{calc($max / 1440 * 100)}vw, #{$max}px)
+}
+
+@mixin reset-link {
+	color: inherit;
+	
+	&,
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+@mixin reset-button{
+	padding: 0;
+	background-color: transparent;
+	border: none;
+}
+
+@mixin flex-center($isInline: false) {
+	@if $isInline {
+		display: inline-flex;
+	} @else {
+		display: flex;
+	}
+	
+	justify-content: center;
+	align-items: center;
+}
+
+@mixin abs-center {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+@mixin square($size) {
+	width: $size;
+	aspect-ratio: 1;
+}
+
+@mixin neon($color, $side, $delay) {
+	position: absolute;
+    #{$side}: -70px;
+    height: 100%;
+    width: 15px;
+    padding-inline: 7px;
+    border-radius: 20px;
+    border: none;
+    background-color: var(--color-light-alt);
+    box-shadow: 0px 0px 20px 3px color($color);
+    cursor: pointer;
+
+	// animation-delay: $delay;
+    animation-name: light;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    transition: all 0.25s ease;
+	animation-timing-function: cubic-bezier(0.1,0.7,1,1);
+
+	@include media.tablet{
+		#{$side}: -50px;
+		width: 15px;
+	}
+
+
+
+
+	@include media.mobile{
+		@include abs-center;
+		translate: 0% 50%;
+		#{$side}: 0;
+		width: 50%;
+		margin-left: auto;
+		margin-right: auto;
+		height: 10px;
+		top: -20px;
+	}
+
+    
+
+    &__neon{
+
+        background-color: $color;
+        box-shadow: 0px 0px 20px 3px  $color, inset 0 0 10px 2px $color;
+        animation-name: light-active;
+        animation-duration: 4s;
+        animation-iteration-count: infinite;
+		animation-timing-function: cubic-bezier(0.1,0.7,1,1);
+
+		@include media.mobile{
+			translate: 0% 50%;
+			width: 100%;
+		}
+
+		@include media.mobile-small{
+			translate: 0% 60%;
+			height: 10px;
+		}
+
+
+    }
+	@keyframes light {
+		0%{
+			box-shadow: 0px 0px 20px 3px #ffffff , inset 0 0 10px 2px #ffffff;
+			background-color: #cccccc;
+		}
+		20%{
+			box-shadow: 0px 0px 40px 3px $color;
+			
+		}
+		35%{
+			box-shadow: 0px 0px 20px 3px #ffffff , inset 0 0 10px 2px #ffffff;
+			background-color: #cccccc;
+	
+		}
+		40%{
+			box-shadow: 0px 0px 40px 3px color $color , inset 0 0 10px 2px $color;
+			background-color: white;
+
+		}
+		50%{
+			box-shadow: 0px 0px 20px 3px #ffffff , inset 0 0 10px 2px #ffffff;
+			background-color: white;
+	
+		}
+		95%{
+			box-shadow: 0px 0px 40px 3px  $color , inset 0 0 10px 2px $color;
+	
+		}
+	}
+	
+	@keyframes light-active {
+		0%{
+			box-shadow: 0px 0px 10px 3px $color , inset 0 0 10px 2px $color;
+		}
+	
+		20%{
+			box-shadow: 0px 0px 15px 3px  $color , inset 0 0 10px 2px $color;
+		}
+		35%{
+			box-shadow: 0px 0px 10px 3px $color , inset 0 0 10px 2px $color;
+		}
+		40%{
+			box-shadow: 0px 0px 15px 3px  $color , inset 0 0 10px 2px #ffffff;
+			background-color: #cccccc;
+		}
+		50%{
+			box-shadow: 0px 0px 10px 3px $color , inset 0 0 10px 2px $color;
+		}
+		90%{
+			box-shadow: 0px 0px 15px 3px $color , inset 0 0 10px 2px $color;
+		}
+	
+	}
+
+}
+
+@mixin neon-glow($color, $maxWidth, $minWidth, $secondAnimation:null ){
+	animation-name: glow, $secondAnimation ;
+	animation-duration: 4s;
+	animation-iteration-count: infinite;
+	animation-fill-mode: backwards;
+	box-shadow: 0px 0px $minWidth 3px  $color, ;
+
+
+	@keyframes glow {
+		0%{
+			box-shadow: 0px 0px $minWidth 3px $color,;
+		}
+	
+		20%{
+			box-shadow: 0px 0px $maxWidth 3px  $color, ;
+		}
+		35%{
+			box-shadow: 0px 0px $minWidth 3px $color, ;
+		}
+		40%{
+			box-shadow: 0px 0px $maxWidth 3px  $color, ;
+		}
+		50%{
+			box-shadow: 0px 0px $minWidth 3px $color, ;
+		}
+		70%{
+			box-shadow: 0px 0px $maxWidth 3px $color, ;
+		}
+		90%{
+			box-shadow: 0px 0px $minWidth 3px $color, ;
+		}
+	
+	}
+
+
+}
+
+
+@mixin preloadGlow($color, $maxWidth, $minWidth) {
+	animation-name: preloadGlow;
+	animation-duration: 4s;
+	animation-iteration-count: infinite;
+	animation-fill-mode: backwards;
+	box-shadow: 0px 0px $minWidth 3px  color($color);
+
+
+	@keyframes preloadGlow {
+		0%{
+			box-shadow: 0px 0px $minWidth 3px color($color);
+		}
+	
+		20%{
+			box-shadow: 0px 0px $maxWidth 3px  color($color);
+		}
+		35%{
+			box-shadow: 0px 0px $minWidth 3px color($color);
+		}
+		40%{
+			box-shadow: 0px 0px $maxWidth 3px  color($color);
+		}
+		50%{
+			box-shadow: 0px 0px $minWidth 3px color($color);
+		}
+		70%{
+			box-shadow: 0px 0px $maxWidth 3px color($color);
+		}
+		90%{
+			box-shadow: 0px 0px $minWidth 3px color($color);
+		}
+	
+	}
+}
+
+

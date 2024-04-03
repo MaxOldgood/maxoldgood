@@ -1,0 +1,299 @@
+@use './styles/media' as media;
+@use './styles/mixins' as mixins;
+
+
+.app {
+  position: relative;
+    display: flex;
+    flex-direction: column;
+    padding-block: 60px;
+    gap: 100px;
+    user-select: none;
+
+    @include media.mobile-small{
+      gap: 70px;
+    }
+
+    &_noscroll{
+      height: 100vh;
+      overflow-y: hidden;
+    }
+    }
+
+
+
+.preloader{
+  @include mixins.abs-center;
+  position:fixed;
+  z-index: 1000;
+  height: 100%;
+  width: 100%;
+  background-color: var(--color-dark);
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+
+  animation-name: disappear;
+  animation-delay: 5s;
+	  animation-duration: 2s;
+	  animation-iteration-count: 1;
+	  animation-fill-mode: forwards;
+
+  @keyframes disappear {
+    from  {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+    
+  }
+
+  &__hint{
+    text-align: center;
+    padding-inline:30px;
+    font-size: 14px;
+    line-height: 1.5;
+
+    @include media.mobile-above{
+      font-size: 18px;
+    }
+  }
+
+  &__neons{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 50px;
+  }
+
+  &__neon_red{
+    z-index: 1500;
+    height: 150px;
+    width: 15px;
+    background-color: var(--color-light);
+    border-radius: var(--border-radius);
+    box-shadow: 0px 0px 30px 3px var(--color-red), inset 0 0 20px 2px var(--color-red);
+    
+    animation-name: preloadGlow;
+	  animation-duration: 4s;
+	  animation-iteration-count: infinite;
+	  animation-fill-mode: backwards;
+	  box-shadow: 0px 0px 30px 3px var(--color-red);
+    
+    @keyframes preloadGlow {
+      0%{
+        box-shadow: 0px 0px 50px 3px var(--color-red);
+      }
+    
+      20%{
+        box-shadow: 0px 0px 30px 3px var(--color-red);
+      }
+      35%{
+        box-shadow: 0px 0px 50px 3px var(--color-red);
+      }
+      40%{
+        box-shadow: 0px 0px 30px 3px var(--color-red);
+      }
+      50%{
+        box-shadow: 0px 0px 50px 3px var(--color-red);
+      }
+      70%{
+        box-shadow: 0px 0px 30px 3px var(--color-red);
+      }
+      90%{
+        box-shadow: 0px 0px 50px 3px var(--color-red);
+      }
+    
+    }
+  }
+
+  &__neon_blue{
+    z-index: 1500;
+    height: 180px;
+    width: 15px;
+    background-color: var(--color-light);
+    border-radius: var(--border-radius);
+    box-shadow: 0px 0px 30px 3px var(--color-blue), inset 0 0 20px 2px var(--color-blue);
+    
+    animation-name: preloadGlowBlue;
+	  animation-duration: 4s;
+	  animation-iteration-count: infinite;
+	  animation-fill-mode: backwards;
+	  box-shadow: 0px 0px 30px 3px var(--color-blue);
+    
+    @keyframes preloadGlowBlue {
+      0%{
+        box-shadow: 0px 0px 50px 3px var(--color-blue);
+      }
+    
+      20%{
+        box-shadow: 0px 0px 30px 3px var(--color-blue);
+      }
+      35%{
+        box-shadow: 0px 0px 50px 3px var(--color-blue);
+      }
+      40%{
+        box-shadow: 0px 0px 30px 3px var(--color-blue);
+      }
+      50%{
+        box-shadow: 0px 0px 50px 3px var(--color-blue);
+      }
+      70%{
+        box-shadow: 0px 0px 30px 3px var(--color-blue);
+      }
+      90%{
+        box-shadow: 0px 0px 50px 3px var(--color-blue);
+      }
+    
+    }
+  }
+
+
+&__neon_green{
+  z-index: 1500;
+  height: 200px;
+  width: 15px;
+  background-color: var(--color-light);
+  border-radius: var(--border-radius);
+  box-shadow: 0px 0px 30px 3px var(--color-green), inset 0 0 20px 2px var(--color-green);
+  
+  animation-name: preloadGlowGreen;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: backwards;
+  box-shadow: 0px 0px 30px 3px varvar(--color-green);
+  
+  @keyframes preloadGlowGreen {
+    0%{
+      box-shadow: 0px 0px 50px 3px var(--color-green);
+    }
+  
+    20%{
+      box-shadow: 0px 0px 30px 3px var(--color-green);
+    }
+    35%{
+      box-shadow: 0px 0px 50px 3px var(--color-green);
+    }
+    40%{
+      box-shadow: 0px 0px 30px 3px var(--color-green);
+    }
+    50%{
+      box-shadow: 0px 0px 50px 3px var(--color-green);
+    }
+    70%{
+      box-shadow: 0px 0px 30px 3px var(--color-green);
+    }
+    90%{
+      box-shadow: 0px 0px 50px 3px var(--color-green);
+    }
+  
+  }
+}
+
+&__neon_purple{
+  z-index: 1500;
+  height: 180px;
+  width: 15px;
+  background-color: var(--color-light);
+  border-radius: var(--border-radius);
+  box-shadow: 0px 0px 30px 3px var(--color-purple), inset 0 0 20px 2px var(--color-purple);
+  
+  animation-name: preloadGlowPurple;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: backwards;
+  box-shadow: 0px 0px 30px 3px varvar(--color-purple);
+  
+  @keyframes preloadGlowPurple {
+    0%{
+      box-shadow: 0px 0px 50px 3px var(--color-purple);
+    }
+  
+    20%{
+      box-shadow: 0px 0px 30px 3px var(--color-purple);
+    }
+    35%{
+      box-shadow: 0px 0px 50px 3px var(--color-purple);
+    }
+    40%{
+      box-shadow: 0px 0px 30px 3px var(--color-purple);
+    }
+    50%{
+      box-shadow: 0px 0px 50px 3px var(--color-purple);
+    }
+    70%{
+      box-shadow: 0px 0px 30px 3px var(--color-purple);
+    }
+    90%{
+      box-shadow: 0px 0px 50px 3px var(--color-purple);
+    }
+  
+  }
+}
+
+&__neon_pink{
+  z-index: 1500;
+  height: 150px;
+  width: 15px;
+  background-color: var(--color-light);
+  border-radius: var(--border-radius);
+  box-shadow: 0px 0px 30px 3px var(--color-pink), inset 0 0 20px 2px var(--color-pink);
+  
+  animation-name: preloadGlowPink;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: backwards;
+  box-shadow: 0px 0px 30px 3px varvar(--color-pink);
+  
+  @keyframes preloadGlowPink {
+    0%{
+      box-shadow: 0px 0px 50px 3px var(--color-pink);
+    }
+  
+    20%{
+      box-shadow: 0px 0px 30px 3px var(--color-pink);
+    }
+    35%{
+      box-shadow: 0px 0px 50px 3px var(--color-pink);
+    }
+    40%{
+      box-shadow: 0px 0px 30px 3px var(--color-pink);
+    }
+    50%{
+      box-shadow: 0px 0px 50px 3px var(--color-pink);
+    }
+    70%{
+      box-shadow: 0px 0px 30px 3px var(--color-pink);
+    }
+    90%{
+      box-shadow: 0px 0px 50px 3px var(--color-pink);
+    }
+  
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}

@@ -1,0 +1,21 @@
+@use '../../app/styles/mixins' as mixins;
+
+.skills{
+
+    &__neon{
+        @include mixins.neon-glow(var(--color-blue), 35px, 30px);
+    }
+
+    &__body {
+        background-color: var(--color-dark-alt);
+
+        &_neon{
+            background-color: var(--color-blue-alt);
+        }
+    }
+
+}
+
+.light{
+    @include mixins.neon(var(--color-blue), right, 1s)
+}

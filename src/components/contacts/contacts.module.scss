@@ -1,0 +1,23 @@
+@use '../../app/styles/mixins' as mixins;
+@use '../../app/styles/media' as media;
+
+
+.contacts{
+    &__neon{
+        @include mixins.neon-glow(var(--color-pink), 35px, 30px);
+    }
+
+    &__body {
+        background-color: var(--color-dark-alt);
+        &_neon{
+            background-color: var(--color-pink);
+        }
+    }
+}
+
+.light{
+    @include mixins.neon(var(--color-pink), left, 4s);
+    @include media.mobile{
+        @include mixins.neon(var(--color-pink), right, 4s);
+    }
+}
