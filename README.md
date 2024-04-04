@@ -1,28 +1,9 @@
 <div align="center">
-
-<div align="center">
   <a href='https://maxoldgood.github.io/maxoldgood/' targer='blank'>
   <img src="https://i.ibb.co/ScV4pjY/rounded-in-photoretrica-1.png" width="800"/>
   </a>
 </div>
-<div id="badges" align='center'>
-  <a href="https://t.me/Maxoldgood">
-    <img src="https://img.shields.io/badge/Telegram-blue" alt="Telegram Badge"/>
-  </a>
-  <a href="https://www.linkedin.com/in/maxoldgood/">
-    <img src="https://img.shields.io/badge/LinkedIn-black" alt="LinkedIn Badge"/>
-  </a>
-  <a href="https://maxoldgood.github.io/maxoldgood/">
-    <img src="https://img.shields.io/badge/My-WebSite-black" alt="LinkedIn Badge"/>
-  </a>
-</div>
-<img src="https://komarev.com/ghpvc/?username=maxoldgood&style=flat-square&color=blue" alt="" align='center'/>
-</div>
-
-
-
 <h2 align="center">Hi there!  My name is Max</h2>
-
 <div align='start'>
   <h3>
   I am react frontend developer.
