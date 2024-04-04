@@ -2,7 +2,7 @@
 
 <div align="center">
   <a href='https://maxoldgood.github.io/maxoldgood/' targer='blank'>
-  <img src="https://i.ibb.co/Lvcmnnc/rounded-in-photoretrica.png" width="800"/>
+  <img src="https://i.ibb.co/ScV4pjY/rounded-in-photoretrica-1.png" width="800"/>
   </a>
 </div>
 <div id="badges" align='center'>
