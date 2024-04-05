@@ -1,14 +1,19 @@
 import styles from "./skills.module.scss";
+import { motion } from "framer-motion";
 
 import { useState } from "react";
 import { Icon } from "../icon/icon";
 import { IconsList } from "./iconsList";
+import { ANIMATION } from "../../const/animation";
 
 export function Skills() {
   const [neon, setNeon] = useState(false);
 
   return (
-    <section
+    <motion.section
+      initial="hidden"
+      whileInView="visible"
+      variants={ANIMATION}
       className={`narrow_section ${neon && "narrow_section__neon_blue"} ${
         styles.skills
       } ${neon && styles.skills__neon}`}
@@ -40,6 +45,6 @@ export function Skills() {
           })}
         </ul>
       </div>
-    </section>
+    </motion.section>
   );
 }

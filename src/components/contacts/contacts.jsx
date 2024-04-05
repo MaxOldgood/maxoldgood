@@ -2,12 +2,17 @@ import styles from "./contacts.module.scss";
 import { Icon } from "../icon/icon.jsx";
 import { useState } from "react";
 import { ICONS_LIST } from "./iconsList";
+import { motion } from "framer-motion";
+import { ANIMATION } from "../../const/animation.js";
 
 export function Contacts() {
   const [neon, setNeon] = useState(false);
 
   return (
-    <section
+    <motion.section
+      initial="hidden"
+      whileInView="visible"
+      variants={ANIMATION}
       className={`narrow_section ${neon && "narrow_section__neon_pink"} ${
         styles.contacts
       } ${neon && styles.contacts__neon}`}
@@ -40,6 +45,6 @@ export function Contacts() {
           })}
         </ul>
       </div>
-    </section>
+    </motion.section>
   );
 }

@@ -2,6 +2,8 @@ import { FreelanceDescription, StradaDescription } from "./descriptions.jsx";
 import styles from "./experience.module.scss";
 import { FREELANCE_ICON_LIST, STRADA_ICON_LIST } from "./iconList.js";
 import { Job } from "./job.jsx";
+import { motion } from "framer-motion";
+import { ANIMATION } from "../../const/animation.js";
 
 import { useState } from "react";
 
@@ -9,7 +11,10 @@ export function Experience() {
   const [neon, setNeon] = useState(false);
 
   return (
-    <section
+    <motion.section
+      initial="hidden"
+      whileInView="visible"
+      variants={ANIMATION}
       className={`${styles.experience} ${neon && styles.experience__neon}`}
     >
       <button
@@ -39,6 +44,6 @@ export function Experience() {
           icons={FREELANCE_ICON_LIST}
         />
       </div>
-    </section>
+    </motion.section>
   );
 }

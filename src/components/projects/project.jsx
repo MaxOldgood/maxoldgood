@@ -1,6 +1,8 @@
 import { ICONS_LIST } from "./iconList";
 import styles from "./projects.module.scss";
 import { Icon } from "../icon/icon";
+import { motion } from "framer-motion";
+import { ANIMATION } from "../../const/animation.js";
 
 import { useState } from "react";
 
@@ -8,7 +10,12 @@ export function Project({ title, ghLink, demoLink, image, name, description }) {
   const [neon, setNeon] = useState(false);
 
   return (
-    <section className={`${styles.projects} ${neon && styles.projects__neon}`}>
+    <motion.section
+      initial="hidden"
+      whileInView="visible"
+      variants={ANIMATION}
+      className={`${styles.projects} ${neon && styles.projects__neon}`}
+    >
       <button
         className={`${styles.light} ${neon && styles.light__neon}`}
         onClick={() => setNeon(!neon)}
@@ -68,6 +75,6 @@ export function Project({ title, ghLink, demoLink, image, name, description }) {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

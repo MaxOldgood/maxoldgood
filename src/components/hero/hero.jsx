@@ -1,12 +1,19 @@
 import styles from "../hero/hero.module.scss";
 import maxImage from "../../assets/img/avatar.png";
+import { motion } from "framer-motion";
+import { ANIMATION } from "../../const/animation.js";
 import { useState } from "react";
 
 export function Hero() {
   const [neon, setNeon] = useState(false);
 
   return (
-    <section className={`${styles.hero} ${neon && styles.hero__neon}`}>
+    <motion.section
+      initial="hidden"
+      whileInView="visible"
+      variants={ANIMATION}
+      className={`${styles.hero} ${neon && styles.hero__neon}`}
+    >
       <button
         className={`${styles.light} ${neon && styles.light__neon}`}
         onClick={() => setNeon(!neon)}
@@ -36,6 +43,6 @@ export function Hero() {
           width={350}
         />
       </div>
-    </section>
+    </motion.section>
   );
 }
