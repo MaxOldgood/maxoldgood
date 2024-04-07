@@ -23,7 +23,7 @@ export const ICONS_LIST = [
   {
     name: "HeadHunter",
     src: hh,
-    href: "https://tomsk.hh.ru/",
+    href: "https://hh.ru/resume/558a3350ff0d0d200c0039ed1f614931636365",
   },
   {
     name: "email: maxoldgood@gmail.com",
