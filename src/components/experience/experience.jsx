@@ -30,14 +30,14 @@ export function Experience() {
         }`}
       >
         <Job
-          period={"March 2023 - April 2024"}
+          period={"February 2023 - April 2024"}
           company={"STRADA"}
           profession={"Frontend Developer"}
           description={<StradaDescription />}
           icons={STRADA_ICON_LIST}
         />
         <Job
-          period={"January 2023 - March 2023"}
+          period={"July 2022 - March 2023"}
           company={"FREELANCE"}
           profession={"Web Developer"}
           description={<FreelanceDescription />}
