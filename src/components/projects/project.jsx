@@ -1,4 +1,3 @@
-import { ICONS_LIST } from "./iconList";
 import styles from "./projects.module.scss";
 import { Icon } from "../icon/icon";
 import { motion } from "framer-motion";
@@ -6,7 +5,15 @@ import { ANIMATION } from "../../const/animation.js";
 
 import { useState } from "react";
 
-export function Project({ title, ghLink, demoLink, image, name, description }) {
+export function Project({
+  title,
+  ghLink,
+  demoLink,
+  image,
+  name,
+  description,
+  icons,
+}) {
   const [neon, setNeon] = useState(false);
 
   return (
@@ -53,7 +60,7 @@ export function Project({ title, ghLink, demoLink, image, name, description }) {
           </a>
           <div className={styles.projects__info}>
             <ul className={styles.projects__stack}>
-              {ICONS_LIST.map((icon) => {
+              {icons.map((icon) => {
                 return (
                   <li key={icon.name}>
                     <Icon
